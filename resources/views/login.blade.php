@@ -1,0 +1,48 @@
+@extends('layouts.form')
+
+@section('content')
+<div class="row">
+    <div class="col-md-6 d-flex justify-content-center align-items-center flex-column left-box">
+      <div class="featured-img">
+        <img src="img/tokong-nanas.png" class="img-fluid" />
+      </div>
+    </div>
+    <div class="col-md-6 right-box p-5" style="height: 100vh">
+      <div class="row align-items-center">
+        <div class="header-text mb-4 text-white text-center">
+          <h2>Masuk</h2>
+          <h1 class="fw-bold">LAPAK TEL-U</h1>
+        </div>
+        <form action="home_profile.html" method="get">
+          <div class="mb-3 text-white">
+            <label for="email" class="form-label">Email/Username</label>
+            <input type="email" class="form-control p-2" id="email" aria-describedby="emailHelp" placeholder="Masukkan email/username kamu" />
+          </div>
+          <div class="mb-3 text-white">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control p-2" id="password" placeholder="Masukkan password kamu" />
+          </div>
+          <div class="mb-3 d-flex justify-content-end">
+            <a href="#" class="lupa-password text-white text-decoration-none">Lupa Password?</a>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 bg-light text-primary fw-bold p-3 mt-3">Masuk</button>
+          <div class="option-text p-4 text-white text-center">
+            <p>atau masuk dengan</p>
+          </div>
+          <div class="login-option d-flex justify-content-between text-center">
+            <div class="google-login bg-light p-2 w-100 align-items-center rounded d-flex justify-content-center align-items-center">
+              <img src="img/logo-google.jpg" class="img-fluid max-width-25" />
+              <a href="#!" class="text-dark ml-1 text-decoration-none bg-light fw-bold">Google</a>
+            </div>
+          </div>
+          <div>
+            <p class="mt-3 text-white text-center">
+              Belum memiliki akun?
+              <a href="registrasi.html" class="text-white fw-bold">Daftar disini</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+@endsection
