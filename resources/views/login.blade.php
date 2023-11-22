@@ -1,5 +1,18 @@
 @extends('layouts.form')
 
+@if ($errors->has('email') || $errors->has('password'))
+    <div class="alert alert-danger">
+        <ul class="mb-0" style="background-color: transparent">
+            @if($errors->has('email'))
+                <li  style="background-color: transparent">{{ $errors->first('email') }}</li>
+            @endif
+
+            @if($errors->has('password'))
+                <li  style="background-color: transparent">{{ $errors->first('password') }}</li>
+            @endif
+        </ul>
+    </div>
+@endif
 @section('content')
 <div class="row">
     <div class="col-md-6 d-flex justify-content-center align-items-center flex-column left-box">
@@ -13,7 +26,8 @@
           <h2>Masuk</h2>
           <h1 class="fw-bold">LAPAK TEL-U</h1>
         </div>
-        <form action="home_profile.html" method="get">
+        <form action="/home" method="post">
+            @csrf
           <div class="mb-3 text-white">
             <label for="email" class="form-label">Email/Username</label>
             <input type="email" class="form-control p-2" id="email" aria-describedby="emailHelp" placeholder="Masukkan email/username kamu" />
@@ -25,7 +39,7 @@
           <div class="mb-3 d-flex justify-content-end">
             <a href="#" class="lupa-password text-white text-decoration-none">Lupa Password?</a>
           </div>
-          <button type="submit" class="btn btn-primary w-100 bg-light text-primary fw-bold p-3 mt-3">Masuk</button>
+          <button name="submit" type="submit" class="btn btn-primary w-100 bg-light text-primary fw-bold p-3 mt-3">Masuk</button>
           <div class="option-text p-4 text-white text-center">
             <p>atau masuk dengan</p>
           </div>
@@ -35,13 +49,13 @@
               <a href="#!" class="text-dark ml-1 text-decoration-none bg-light fw-bold">Google</a>
             </div>
           </div>
-          <div>
-            <p class="mt-3 text-white text-center">
-              Belum memiliki akun?
-              <a href="registrasi.html" class="text-white fw-bold">Daftar disini</a>
-            </p>
-          </div>
         </form>
+        <div>
+          <p class="mt-3 text-white text-center">
+            Belum memiliki akun?
+            <a href="/register" class="text-white fw-bold">Daftar disini</a>
+          </p>
+        </div>
       </div>
     </div>
   </div>

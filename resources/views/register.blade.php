@@ -93,15 +93,15 @@
               >
             </div>
           </div>
-          <div>
-            <p class="mt-3 text-white text-center">
-              Sudah memiliki akun?
-              <a href="login.html" class="text-white fw-bold"
-                >Masuk disini</a
-              >
-            </p>
-          </div>
         </form>
+        <div>
+          <p class="mt-3 text-white text-center">
+            Sudah memiliki akun?
+            <a href="{{route('login')}}" class="text-white fw-bold"
+              >Masuk disini</a
+            >
+          </p>
+        </div>
       </div>
     </div>
   </div>
