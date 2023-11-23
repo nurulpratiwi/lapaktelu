@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lapak Tel-U | {{'title'}}</title>
+    <title>Lapak Tel-U | @yield('title')</title>
 
+    @notifyCss
     @include('includes.style')
     @include('includes.font')
     @include('includes.bootstrap')
@@ -19,6 +20,8 @@
       @yield('content')
     </div>
     @include('includes.script')
+    <x-notify::notify />
+    @notifyJs
   </body>
 
   <script>

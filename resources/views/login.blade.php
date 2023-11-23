@@ -1,23 +1,12 @@
 @extends('layouts.form')
 
-@if ($errors->has('email') || $errors->has('password'))
-    <div class="alert alert-danger">
-        <ul class="mb-0" style="background-color: transparent">
-            @if($errors->has('email'))
-                <li  style="background-color: transparent">{{ $errors->first('email') }}</li>
-            @endif
+@section('title', 'Masuk')
 
-            @if($errors->has('password'))
-                <li  style="background-color: transparent">{{ $errors->first('password') }}</li>
-            @endif
-        </ul>
-    </div>
-@endif
 @section('content')
 <div class="row">
     <div class="col-md-6 d-flex justify-content-center align-items-center flex-column left-box">
       <div class="featured-img">
-        <img src="img/tokong-nanas.png" class="img-fluid" />
+        <img src="{{url('img/tokong-nanas.png')}}" class="img-fluid" />
       </div>
     </div>
     <div class="col-md-6 right-box p-5" style="height: 100vh">
@@ -29,12 +18,18 @@
         <form action="/home" method="post">
             @csrf
           <div class="mb-3 text-white">
-            <label for="email" class="form-label">Email/Username</label>
-            <input type="email" class="form-control p-2" id="email" aria-describedby="emailHelp" placeholder="Masukkan email/username kamu" />
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control p-2" id="email" aria-describedby="emailHelp" placeholder="Masukkan email kamu" />
+            <div class="invalid-feedback">
+              Mohon masukkan Email Anda
+            </div>
           </div>
           <div class="mb-3 text-white">
             <label for="password" class="form-label">Password</label>
             <input type="password" class="form-control p-2" id="password" placeholder="Masukkan password kamu" />
+            <div class="invalid-feedback">
+              Mohon masukkan password Anda
+            </div>
           </div>
           <div class="mb-3 d-flex justify-content-end">
             <a href="#" class="lupa-password text-white text-decoration-none">Lupa Password?</a>

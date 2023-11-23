@@ -1,12 +1,12 @@
 @extends('layouts.form')
-
+@section('title', 'Daftar')
 @section('content')
   <div class="row">
     <div
       class="col-md-6 d-flex justify-content-center align-items-center flex-column left-box"
     >
       <div class="featured-img">
-        <img src="{{'img/tokong-nanas.png'}}" class="img-fluid" />
+        <img src="{{url('img/tokong-nanas.png')}}" class="img-fluid" />
       </div>
     </div>
     <div class="col-md-6 right-box p-5">
@@ -83,7 +83,7 @@
               class="google-login bg-light p-2 w-100 align-items-center rounded d-flex justify-content-center align-items-center"
             >
               <img
-                src="{{'img/logo-google.jpg'}}"
+                src="{{url('img/logo-google.jpg')}}"
                 class="img-fluid max-width-25"
               />
               <a
@@ -97,7 +97,7 @@
         <div>
           <p class="mt-3 text-white text-center">
             Sudah memiliki akun?
-            <a href="{{route('login')}}" class="text-white fw-bold"
+            <a href="{{route('showLogin')}}" class="text-white fw-bold"
               >Masuk disini</a
             >
           </p>
