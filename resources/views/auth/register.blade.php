@@ -16,7 +16,7 @@
           <h1 class="fw-bold">LAPAK TEL-U</h1>
         </div>
 
-        <form class="needs-validation" action="home_profile.html" method="get" novalidate>
+        <form class="needs-validation" action="{{route('register.daftar')}}" method="get" novalidate>
           <div class="mb-3 text-white">
             <label for="email" class="form-label">Email</label>
             <input
@@ -27,23 +27,26 @@
               aria-describedby="emailHelp"
               placeholder="Masukkan email kamu"
             />
-            <div class="invalid-feedback">
-              Masukan email kamu
-            </div>
+            @error('email')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+            @enderror
           </div>
           <div class="mb-3 text-white">
             <label for="username" class="form-label">Username</label>
             <input
               type="text"
               class="form-control p-2"
-              id="email"
+              id="username"
               required
-              aria-describedby="usernaHelp"
               placeholder="Masukkan username kamu"
             />
-            <div class="invalid-feedback">
-              Masukan Username kamu
-            </div>
+            @error('username')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+            @enderror
           </div>
           <div class="mb-3 text-white">
             <label for="password" class="form-label">Password</label>
@@ -54,17 +57,13 @@
               required
               placeholder="Masukkan password kamu"
             />
-            <div class="invalid-feedback">
-              Masukan Password kamu
-            </div>
+            @error('password')
+              <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+              </span>
+            @enderror
           </div>
-          <div class="mb-3 d-flex justify-content-end">
-            <a
-              href="#"
-              class="lupa-password text-white text-decoration-none"
-              >Lupa Password?</a
-            >
-          </div>
+          
           <button
             type="submit"
             class="btn btn-primary w-100 bg-light text-primary fw-bold p-3 mt-3"
@@ -97,7 +96,7 @@
         <div>
           <p class="mt-3 text-white text-center">
             Sudah memiliki akun?
-            <a href="{{route('showLogin')}}" class="text-white fw-bold"
+            <a href="{{route('register.showLogin')}}" class="text-white fw-bold"
               >Masuk disini</a
             >
           </p>

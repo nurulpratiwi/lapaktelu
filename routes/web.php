@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -16,5 +17,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('register');
+    return view("auth.register");
 });
+
+Route::prefix("register")->name('register.')->group(function () {
+    Route::get('register.login', [AuthController::class,'showLogin'])->name('showLogin');
+    Route::get('register', [AuthController::class,'indexRegister'])->name('register');
+    Route::post('register.daftar', [AuthController::class, 'store'])->name('daftar');
+});
+
+Route::prefix('login')->name('login.')->group(function () {
+    Route::get('login.showRegister', [AuthController::class,'showRegister'])->name('showRegister');
+    Route::get('login.forgot', [AuthController::class, 'forgotPassword'])->name('forgotPassword');
+});
+
