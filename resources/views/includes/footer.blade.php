@@ -8,7 +8,7 @@
             <!-- Grid column -->
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               <!-- Content -->
-              <img src="img/logo-lapak-telu.png" alt="" width="40%" class="img-fluid mb-3" />
+              <img src="{{url('img/logo-lapak-telu.png')}}" alt="" width="40%" class="img-fluid mb-3" />
               <p class="fs-2">Lapak Tel-U</p>
               <p>Lapak Telkom University merupakan website penyedia forum jual beli untuk membantu menjualbelikan barang bekas (second/preloved) bagi seluruh civitas akademik Telkom University, Bandung.</p>
             </div>

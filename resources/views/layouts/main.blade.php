@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>@yield('judul')</title>
 
     <!--Memanggil style, font dan boostrap-->
-    @include('includes.style')
+    @include('includes.stylehome')
     @include('includes.font')
     @include('includes.bootstrap')
 </head>

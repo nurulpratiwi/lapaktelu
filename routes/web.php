@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 //route
 Route::get('/', function () {
-    return view("auth.register");
+    return view("home");
 });
 
 //route register
@@ -33,3 +32,10 @@ Route::prefix('login')->name('login.')->group(function () {
     Route::get('login.forgot', [AuthController::class, 'forgotPassword'])->name('forgotPassword');
 });
 
+//route home
+Route::prefix('home')->name('home.')->group(function(){
+    Route::get('home', [HomeController::class,'index']);
+    Route::get('jual', [HomeController::class,'jual']);
+    Route::get('login', [HomeController::class,'login']);
+    Route::get('detailkategori', [HomeController::class,'detailKategori'])->name('detail');
+});
