@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container-fluid justify-content-center">
             <!-- logo -->
             <a class="navbar-brand d-flex ps-4" href="#">
-                <img href="#" src="img/group-296.png" alt="" width="60">
+                <img href="#" src="{{url('img/group-296.png')}}" alt="" width="60">
             </a>
 
             <div class="d-flex flex-column">
@@ -55,5 +48,3 @@
             </div>
         </div>
     </nav>
-</body>
-</html>
