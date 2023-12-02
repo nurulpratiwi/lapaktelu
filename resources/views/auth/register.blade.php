@@ -16,7 +16,7 @@
           <h1 class="fw-bold">LAPAK TEL-U</h1>
         </div>
 
-        <form class="needs-validation" action="{{route('register.daftar')}}" method="get" novalidate>
+        <form class="needs-validation" action="{{url('register/home')}}" method="get" novalidate>
           <div class="mb-3 text-white">
             <label for="email" class="form-label">Email</label>
             <input
@@ -96,7 +96,7 @@
         <div>
           <p class="mt-3 text-white text-center">
             Sudah memiliki akun?
-            <a href="{{route('register.showLogin')}}" class="text-white fw-bold"
+            <a href="{{route('showLogin')}}" class="text-white fw-bold"
               >Masuk disini</a
             >
           </p>

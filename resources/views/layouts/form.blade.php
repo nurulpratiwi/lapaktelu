@@ -22,6 +22,7 @@
     @include('includes.script')
     <x-notify::notify />
     @notifyJs
+    
   </body>
 
   <script>

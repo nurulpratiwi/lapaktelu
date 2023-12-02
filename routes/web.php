@@ -21,15 +21,18 @@ Route::get('/', function () {
 });
 
 //route register
-Route::prefix("register")->name('register.')->group(function () {
-    Route::get('register.login', [AuthController::class,'showLogin'])->name('showLogin');
-    Route::get('register', [AuthController::class,'indexRegister'])->name('register');
-    Route::post('register.daftar', [AuthController::class, 'store'])->name('daftar');
+
+Route::get('/auth/login', [AuthController::class, 'showRegister'])->name('showRegister');
+Route::prefix("login")->group(function () {
+    Route::get('/auth/login', [AuthController::class, 'showLogin'])->name('login');
+    Route::post('/home', [AuthController::class, 'login']);
 });
 
-//route login
-Route::prefix('login')->name('login.')->group(function () {
-    Route::get('login.showRegister', [AuthController::class,'showRegister'])->name('showRegister');
-    Route::get('login.forgot', [AuthController::class, 'forgotPassword'])->name('forgotPassword');
-});
+
+Route::get('/auth/register', [AuthController::class, 'showLogin'])->name('showLogin');
+Route::prefix('register')->group(function () {
+    Route::get('/auth/register', [AuthController::class, 'showRegister'])->name('register');
+    Route::post('/home', [AuthController::class, 'register']);
+}
+);
 

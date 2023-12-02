@@ -4,43 +4,44 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUser;
+use App\Http\Requests\StoreLogin;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function indexRegister(){
-        return view("auth/register");
-    }
-
-    public function indexLogin(){
-        return view("auth/login");
-    }
+   
     public function showLogin(){
-        return view("auth/login");
+        return view("auth.login");
     }
     public function showRegister(){
-        return view("auth/register");
+        return view("auth.register");
     }
 
     public function forgotPassword(){
-        return view("auth/lupa");
+        return view("auth.lupa");
     }
 
-    public function store(Request $request){
-        $this->validate($request,[
-            "username"=>["required","string","min:6"],
-            "email"=> "required | string | max:255 | email | unique:users",
-            "password"=> "required | min:6 | string | regex:regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/"
-        ],[
-          "username.required"=> "Username harus memiliki minimal 6 karakter",
-          "email.required"=> "Email harus diisi",
-          "password.required"=> "Password harus mengandung 6 karakter terdiri dari huruf besar, kecil dan simbol"
-        ]);
-
-        User::create([$request->all()]);
-        return redirect("welcome")->with("success","Selamat, Data Anda berhasil disimpan");
+    public function login(StoreUser $request){
+        $validated = $request->validated();
+        if(Auth::attempt($validated->only($validated->email, $validated->password))){
+            return redirect('/home');
+        }
+        return back()->withErrors(['email'=>'Email dan/atau Password Anda salah!']);
     }
     
+
+    public function register(StoreUser $request){
+        $validated = $request->validated();
+        $user = User::create([
+            'username' => $validated['username'],
+            'email'=> $validated['email'],
+            'password'=> bcrypt($validated['password']),
+            
+        ]);
+        Auth::login($user);
+        return redirect('/home');
+    }
     // public function login(Request $request){
     //     $this->validate($request,[
     //         "email"=> "required|email",
