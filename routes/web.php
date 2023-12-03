@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,24 +18,14 @@ use Illuminate\Support\Facades\Route;
 */
 //route
 Route::get('/', function () {
-    return view("home");
+    return view("auth/register");
 });
 
-//route register
-
-Route::get('/auth/login', [AuthController::class, 'showRegister'])->name('showRegister');
-Route::prefix("login")->group(function () {
-    Route::get('/auth/login', [AuthController::class, 'showLogin'])->name('login');
-    Route::post('/home', [AuthController::class, 'login']);
-});
-
-
-Route::get('/auth/register', [AuthController::class, 'showLogin'])->name('showLogin');
-Route::prefix('register')->group(function () {
-    Route::get('/auth/register', [AuthController::class, 'showRegister'])->name('register');
-    Route::post('/home', [AuthController::class, 'register']);
-}
-);
+//route register & login
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->name('store');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login.login');
 
 //route home
 Route::prefix('home')->name('home.')->group(function(){

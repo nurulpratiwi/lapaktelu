@@ -16,51 +16,55 @@
           <h1 class="fw-bold">LAPAK TEL-U</h1>
         </div>
 
-        <form class="needs-validation" action="{{url('register/home')}}" method="get" novalidate>
+        <form  action="{{ route('store') }}" method="POST" >
+          @csrf
           <div class="mb-3 text-white">
             <label for="email" class="form-label">Email</label>
             <input
-              type="text"
-              class="form-control p-2"
+              type="email"
+              class="form-control p-2  @error('email') is-invalid @enderror"
               id="email"
+              name="email"
               required
-              aria-describedby="emailHelp"
               placeholder="Masukkan email kamu"
             />
-            @error('email')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
+            @error('email') 
+              <div class="invalid-feedback">
+                {{ $message }}
+              </div>
             @enderror
+            
           </div>
           <div class="mb-3 text-white">
             <label for="username" class="form-label">Username</label>
             <input
               type="text"
-              class="form-control p-2"
+              class="form-control p-2  @error('username') is-invalid @enderror"
               id="username"
+              name="username"
               required
               placeholder="Masukkan username kamu"
             />
-            @error('username')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
+            @error('username') 
+              <div class="invalid-feedback">
+                Username wajib diisi.
+              </div>
             @enderror
           </div>
           <div class="mb-3 text-white">
             <label for="password" class="form-label">Password</label>
             <input
               type="password"
-              class="form-control p-2"
+              class="form-control p-2 @error('username') is-invalid @enderror"
               id="password"
+              name="password"
               required
               placeholder="Masukkan password kamu"
             />
-            @error('password')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
+            @error('password') 
+              <div class="invalid-feedback">
+                Password wajib diisi.
+              </div>
             @enderror
           </div>
           
@@ -71,7 +75,7 @@
             Daftar
           </button>
           <div class="option-text p-4 text-white text-center">
-            <p>atau masuk dengan</p>
+            <p>atau daftar dengan</p>
           </div>
 
 
@@ -96,7 +100,7 @@
         <div>
           <p class="mt-3 text-white text-center">
             Sudah memiliki akun?
-            <a href="{{route('showLogin')}}" class="text-white fw-bold"
+            <a href="{{route('login')}}" class="text-white fw-bold"
               >Masuk disini</a
             >
           </p>

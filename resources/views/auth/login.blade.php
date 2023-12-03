@@ -15,7 +15,7 @@
           <h2>Masuk</h2>
           <h1 class="fw-bold">LAPAK TEL-U</h1>
         </div>
-        <form action="{{url('login/home')}}" method="POST" class="needs-validation">
+        <form action="{{ route('login.login') }}" method="POST" class="needs-validation">
             @csrf
           <div class="mb-3 text-white">
             <label for="email" class="form-label">Email</label>
@@ -48,7 +48,7 @@
         <div>
           <p class="mt-3 text-white text-center">
             Belum memiliki akun?
-            <a href="{{route('showRegister')}}" class="text-white fw-bold">Daftar disini</a>
+            <a href="{{route('register')}}" class="text-white fw-bold">Daftar disini</a>
           </p>
         </div>
       </div>
