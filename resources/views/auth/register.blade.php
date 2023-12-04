@@ -2,6 +2,7 @@
 @section('title', 'Daftar')
 @section('content')
   <div class="row">
+    
     <div
       class="col-md-6 d-flex justify-content-center align-items-center flex-column left-box"
     >
@@ -15,6 +16,27 @@
           <h2>Daftar</h2>
           <h1 class="fw-bold">LAPAK TEL-U</h1>
         </div>
+        <div class="mt-5">
+          @if($errors->any())
+            <div class="col-12">
+              @foreach($errors->all() as $error)
+                <div class="alert alert-danger">
+                  {{ $error }}
+                </div>
+              @endforeach
+            </div>
+          @endif
+          @if(session()->has('error'))
+          <div class="alert alert-danger">
+            {{ session('error') }}
+          </div>
+          @endif
+          @if(session()->has('success'))
+          <div class="alert alert-success">
+            {{ session('success') }}
+          </div>
+          @endif
+        </div>
 
         <form  action="{{ route('store') }}" method="POST" >
           @csrf
@@ -22,54 +44,55 @@
             <label for="email" class="form-label">Email</label>
             <input
               type="email"
-              class="form-control p-2  @error('email') is-invalid @enderror"
+              class="form-control p-2 "
               id="email"
               name="email"
               required
               placeholder="Masukkan email kamu"
             />
-            @error('email') 
+            {{--  @error('email') 
               <div class="invalid-feedback">
                 {{ $message }}
               </div>
-            @enderror
+            @enderror  --}}
             
           </div>
           <div class="mb-3 text-white">
             <label for="username" class="form-label">Username</label>
             <input
               type="text"
-              class="form-control p-2  @error('username') is-invalid @enderror"
+              class="form-control p-2  "
               id="username"
               name="username"
               required
               placeholder="Masukkan username kamu"
             />
-            @error('username') 
+            {{--  @error('username') 
               <div class="invalid-feedback">
                 Username wajib diisi.
               </div>
-            @enderror
+            @enderror  --}}
           </div>
           <div class="mb-3 text-white">
             <label for="password" class="form-label">Password</label>
             <input
               type="password"
-              class="form-control p-2 @error('username') is-invalid @enderror"
+              class="form-control p-2 "
               id="password"
               name="password"
               required
               placeholder="Masukkan password kamu"
             />
-            @error('password') 
+            {{--  @error('password') 
               <div class="invalid-feedback">
                 Password wajib diisi.
               </div>
-            @enderror
+            @enderror  --}}
           </div>
           
           <button
             type="submit"
+            name="submit"
             class="btn btn-primary w-100 bg-light text-primary fw-bold p-3 mt-3"
           >
             Daftar

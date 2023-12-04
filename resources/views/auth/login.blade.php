@@ -15,7 +15,28 @@
           <h2>Masuk</h2>
           <h1 class="fw-bold">LAPAK TEL-U</h1>
         </div>
-        <form action="{{ route('login.login') }}" method="POST" class="needs-validation">
+        {{--  {{--  <div class="mt-5">
+          @if($errors->any())
+            <div class="col-12">
+              @foreach($errors->all() as $error)
+                <div class="alert alert-danger">
+                  {{ $error }}
+                </div>
+              @endforeach
+            </div>
+          @endif
+          @if(session()->has('error'))
+          <div class="alert alert-danger">
+            {{ session('error') }}
+          </div>
+          @endif
+          @if(session()->has('success'))
+          <div class="alert alert-success">
+            {{ session('success') }}
+          </div>
+          @endif  
+        </div>  --}}
+        <form action="{{ route('login.post') }}" method="POST">
             @csrf
           <div class="mb-3 text-white">
             <label for="email" class="form-label">Email</label>
