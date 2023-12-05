@@ -1,10 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,16 +19,17 @@ use Illuminate\Support\Facades\Route;
 */
 //route
 Route::get('/', function () {
-    return view("register");
+    return view("auth/register");
 });
 
 //route register & login
 Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register', [RegisterController::class, 'store'])->name('store');
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/login', [LoginController::class, 'login'])->name('login.post');
-Route::get('/home', [HomeController::class,'index'])->name('home')->middleware('auth');
-
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
+Route::get('/home', [HomeController::class,'index'])->name('home');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 //route home

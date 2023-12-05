@@ -15,19 +15,21 @@ class RegisterController extends Controller
     public function store(Request $request){
         $request->validate([
             'username' => 'required|string|min:6',
-            'email' => 'required|string|max:255|email|unique:users',
+            'email' => 'required|max:255|email|unique:users',
             'password' => 'required|min:6|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+        ],[
+            'username.required' => 'Username harus mengandung minimal 6 karakter tanpa spasi',
+            'email.required' => 'Email wajib diisi',
+            "password.required" => 'Password harus mengandung minimal 6 karakter berbeda terdiri dari huruf besar, kecil, angka dan simbol'
         ]);
         
         $data['username'] = $request->username;
         $data['email'] = $request->email;
         $data['password'] = Hash::make($request->password);
 
-        $user = User::create($data);
-        if(!$user){
-            return redirect(route('register'))->with("error", "Pendaftaran gagal, coba lagi!");
-        }
-        return redirect(route('login'))->with("success", "Berhasil Registrasi!, Login untuk mengakses web!");
+        User::create($data);
+        $request->session()->flash('success', 'Registrasi berhasil! Silahkan login');
+        return redirect(route('login'));
     }
 
   
