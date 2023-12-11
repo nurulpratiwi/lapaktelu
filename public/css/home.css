@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+/* === NAVIGASI === */
+body {
+    font-family: sans-serif;
+}
+/* responsif Navbar */
+@media (max-width: 991px) {
+    .navbar .sidebar {
+        background-color: #3570d6;
+    }
+}
+
+.navbar {
+    background-color: #3570d6;
+}
+
+/* Tulisan lapak telu */
+.navbar .navbar-brand {
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+}
+
+/* search bar */
+#search {
+    width: 350px;
+}
+
+/* Upload dan Masuk */
+#upload-login {
+    font-family: sans-serif;
+    color: #3570d6;
+}
+
+.lihat-semua {
+    font-size: 24px;
+    text-decoration: none;
+}
+.btn-primer {
+    background-color: white;
+    color: #3570d6;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px 15px 30px;
+    font-weight: 500;
+}
+.btn-primer:hover {
+    background-color: #6197ef;
+    color: white;
+    transition: 0.5s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    margin-top: 3rem;
+}
+
+.card-kategori img {
+    max-width: 60px;
+}
+
+.card-item {
+    cursor: pointer;
+}
+
+.product-group {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 50px 20px 50px;
+}
+
+.product-card {
+    padding: 10px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+}
+
+.product-card img {
+    width: 200px;
+    margin-bottom: 10px;
+}
+.nama-produk p {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.nama-produk h3 {
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+.product-card button {
+    background-color: #3570d6;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    color: white;
+}

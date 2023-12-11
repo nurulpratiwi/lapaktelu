@@ -2,6 +2,7 @@
 @section('title', 'Daftar')
 @section('content')
   <div class="row">
+    
     <div
       class="col-md-6 d-flex justify-content-center align-items-center flex-column left-box"
     >
@@ -15,63 +16,46 @@
           <h2>Daftar</h2>
           <h1 class="fw-bold">LAPAK TEL-U</h1>
         </div>
-
-        <form class="needs-validation" action="{{route('register.daftar')}}" method="get" novalidate>
+       
+        <form  action="{{ route('store') }}" method="POST" >
+          @csrf
           <div class="mb-3 text-white">
             <label for="email" class="form-label">Email</label>
-            <input
-              type="text"
-              class="form-control p-2"
-              id="email"
-              required
-              aria-describedby="emailHelp"
-              placeholder="Masukkan email kamu"
-            />
+            <input type="email" class="form-control p-2 @error('email') is-invalid @enderror" id="email" name="email" placeholder="Masukkan email kamu"  value="{{ old('email') }}"/>
             @error('email')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
             @enderror
           </div>
           <div class="mb-3 text-white">
             <label for="username" class="form-label">Username</label>
-            <input
-              type="text"
-              class="form-control p-2"
-              id="username"
-              required
-              placeholder="Masukkan username kamu"
-            />
+            <input type="text" class="form-control p-2 @error('username') is-invalid @enderror" id="username" name="username" placeholder="Masukkan username kamu"   value="{{ old('username') }}"/>
             @error('username')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
             @enderror
           </div>
           <div class="mb-3 text-white">
             <label for="password" class="form-label">Password</label>
-            <input
-              type="password"
-              class="form-control p-2"
-              id="password"
-              required
-              placeholder="Masukkan password kamu"
-            />
+            <input type="password" class="form-control p-2 @error('password') is-invalid @enderror" id="password" name="password" placeholder="Masukkan password kamu"  value="{{ old('password') }}" />
             @error('password')
-              <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
-              </span>
+            <div class="invalid-feedback">
+              {{ $message }}
+            </div>
             @enderror
           </div>
           
           <button
             type="submit"
+            name="submit"
             class="btn btn-primary w-100 bg-light text-primary fw-bold p-3 mt-3"
           >
             Daftar
           </button>
           <div class="option-text p-4 text-white text-center">
-            <p>atau masuk dengan</p>
+            <p>atau daftar dengan</p>
           </div>
 
 
@@ -96,7 +80,7 @@
         <div>
           <p class="mt-3 text-white text-center">
             Sudah memiliki akun?
-            <a href="{{route('register.showLogin')}}" class="text-white fw-bold"
+            <a href="{{route('login')}}" class="text-white fw-bold"
               >Masuk disini</a
             >
           </p>

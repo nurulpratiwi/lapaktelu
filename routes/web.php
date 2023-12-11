@@ -46,4 +46,4 @@ Route::prefix('login')->name('login.')->group(function () {
 
 //route jual
 Route::post('/store', [jualController::class, 'store']);
-Route::get('/create', [jualController::class, 'create']);
+Route::get('/create', [jualController::class, 'create']);php

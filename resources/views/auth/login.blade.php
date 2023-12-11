@@ -15,24 +15,42 @@
           <h2>Masuk</h2>
           <h1 class="fw-bold">LAPAK TEL-U</h1>
         </div>
-        <form action="/home" method="post" class="needs-validation">
+        @if(session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+        </div>
+         @endif
+
+        @if(session()->has('error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ session('error') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+            </div>
+        @endif
+
+        <form action="{{ route('authenticate') }}" method="POST">
             @csrf
           <div class="mb-3 text-white">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control p-2" id="email" aria-describedby="emailHelp" placeholder="Masukkan email kamu" />
+            <input name="email" type="email" class="form-control p-2 @error('email') is-invalid @enderror" id="email" aria-describedby="emailHelp" placeholder="Masukkan email kamu" />
+            @error('email')
             <div class="invalid-feedback">
-              Mohon masukkan Email Anda
+              {{ $message }}
             </div>
+            @enderror
           </div>
           <div class="mb-3 text-white">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control p-2" id="password" placeholder="Masukkan password kamu" />
+            <input name="password" type="password" class="form-control p-2 @error('password') is-invalid @enderror" id="password" placeholder="Masukkan password kamu" />
+            @error('password')
             <div class="invalid-feedback">
-              Mohon masukkan password Anda
+              {{ $message }}
             </div>
+            @enderror
           </div>
           <div class="mb-3 d-flex justify-content-end">
-            <a href="{{route('login.forgotPassword')}}" class="lupa-password text-white text-decoration-none">Lupa Password?</a>
+            <a href="#" class="lupa-password text-white text-decoration-none">Lupa Password?</a>
           </div>
           <button name="submit" type="submit" class="btn btn-primary w-100 bg-light text-primary fw-bold p-3 mt-3">Masuk</button>
           <div class="option-text p-4 text-white text-center">
@@ -48,7 +66,7 @@
         <div>
           <p class="mt-3 text-white text-center">
             Belum memiliki akun?
-            <a href="{{route('login.showRegister')}}" class="text-white fw-bold">Daftar disini</a>
+            <a href="{{route('register')}}" class="text-white fw-bold">Daftar disini</a>
           </p>
         </div>
       </div>
