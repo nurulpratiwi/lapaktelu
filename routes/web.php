@@ -32,8 +32,8 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 //route home
 Route::prefix('home')->name('home.')->group(function(){
     Route::get('home', [HomeController::class,'index']);
-    Route::get('jual', [HomeController::class,'jual']);
-    Route::get('login', [HomeController::class,'login']);
+    //Route::get('jual', [HomeController::class,'jual'])->name('jual');
+    //Route::get('login', [HomeController::class,'login'])->name('login');
     Route::get('detailkategori', [HomeController::class,'detailKategori'])->name('detail');
 }); 
 Route::get('/', function () {
@@ -53,4 +53,4 @@ Route::get('/jual', function () {
 
 //route jual
 Route::post('/store', [jualController::class, 'store']);
-Route::get('/create', [jualController::class, 'create']);
+Route::get('/jual', [jualController::class, 'index'])->name('jual');

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class jualController extends Controller
 {
-    public function create()
+    public function index()
     {
         return view('jual');
     }
@@ -22,6 +22,6 @@ class jualController extends Controller
         $prod->kondisi = $request->kondisi;
         $prod->fotoOrvideo = '';
         $prod->save();
-        return redirect('/create')->with('msg', 'Tambah berhasil');
+        return redirect('/jual')->with('msg', 'Tambah berhasil');
     }
 }
