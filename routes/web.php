@@ -27,8 +27,8 @@ Route::post('/login', [LoginController::class, 'authenticate'])->name('authentic
 Route::get('/home', [HomeController::class,'index'])->name('home');
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
 //route home
 Route::prefix('home')->name('home.')->group(function(){
     Route::get('home', [HomeController::class,'index']);
@@ -37,7 +37,7 @@ Route::prefix('home')->name('home.')->group(function(){
     Route::get('detailkategori', [HomeController::class,'detailKategori'])->name('detail');
 }); 
 Route::get('/', function () {
-    return view("jual");
+    return view("home");
 });
 
 //route home

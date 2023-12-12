@@ -1,0 +1,26 @@
+@media (max-width: 991px) {
+    .navbar .sidebar {
+        background-color: #3570d6;
+    }
+}
+
+.navbar {
+    background-color: #3570d6;
+}
+
+/* Tulisan lapak telu */
+.navbar .navbar-brand {
+    color: rgb(255, 255, 255);
+    font-family: sans-serif;
+}
+
+/* search bar */
+#search {
+    width: 350px;
+}
+
+/* Upload dan Masuk */
+#upload-login {
+    font-family: sans-serif;
+    color: #3570d6;
+}

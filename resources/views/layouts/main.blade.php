@@ -7,6 +7,7 @@
 
     <!--Memanggil style, font dan boostrap-->
     @include('includes.stylehome')
+    @include('includes.stylenavbar')
     @include('includes.font')
     @include('includes.bootstrap')
 </head>
