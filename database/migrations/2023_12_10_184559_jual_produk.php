@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('kategori');
             $table->integer('harga');
             $table->string('kondisi');
-            $table->string('fotoOrvideo');
+            $table->image('foto');
             $table->timestamps();
         });
     }
