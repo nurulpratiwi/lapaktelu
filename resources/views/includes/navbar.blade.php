@@ -37,12 +37,28 @@
                     </ul>
                     <div class="d-flex justify-content-center gap-3 pe-4" >
 
-                        <a href="{{route('jual')}}" class="text-white text-decoration-none px-3 py-2">
+                        @auth
+                        <!-- Jika pengguna sudah login -->
+                        <a href="{{ route('jual') }}" class="text-white text-decoration-none px-3 py-2">
                             Upload
                         </a>
-                        <a href="{{route('login')}}" class="text-white text-decoration-none px-4 py-2" id="upload-login">
-                            Login
+                    @else
+                        <!-- Jika pengguna belum login -->
+                        <a href="{{ route('login') }}" class="text-white text-decoration-none px-3 py-2">
+                            Upload
                         </a>
+                    @endauth
+                    @guest
+                    <!-- Jika pengguna belum login -->
+                    <a href="{{ route('login') }}" class="text-white text-decoration-none px-4 py-2" id="upload-login">
+                        Login
+                    </a>
+                @else
+                    <!-- Jika pengguna sudah login -->
+                    <a href="#" class="text-white text-decoration-none px-4 py-2">
+                        {{ Auth::user()->username }}
+                    </a>
+                @endguest
                     </div>
                 </div>
             </div>
