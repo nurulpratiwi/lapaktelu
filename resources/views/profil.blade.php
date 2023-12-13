@@ -45,10 +45,7 @@
             </li>
             <li>
               <a href="produk_tersimpan.html" class="nav-link link-dark ps-0">
-                <i class="bi bi-bookmark-fill"></i>
-                <svg class="bi me-2" width="16" height="16">
-                  <use xlink:href="#sbookmark-fill" />
-                </svg>
+
                 Tersimpan
               </a>
             </li>
