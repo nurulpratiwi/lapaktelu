@@ -4,20 +4,23 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
     public function up(): void
     {
-        Schema::create('jual_models', function (Blueprint $table) {
+        Schema::create('produks', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
             $table->string('deskripsi');
-            $table->string('kategori');
             $table->integer('harga');
-            $table->string('kondisi');
-            $table->image('foto');
+            $table->foreignId('kategori_id')->constained();
+            $table->foreignId('kondisi_id')->constained();
+            $table->foreignId('user_id')->constained();
+            $table->string('gambar');
+            $table->enum('status', ['pending', 'accepted', 'rejected'])->default('pending');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('jual_models');
+        Schema::dropIfExists('produks');
     }
 };

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produk;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -22,5 +23,10 @@ class HomeController extends Controller
         return view("detailkategori");
     }
 
-    
+    public function showConfirmedProducts()
+    {
+        $confirmedProducts = Produk::where('status', 'accepted')->get();
+
+        return view('home', compact('confirmedProducts'));
+    }
 }

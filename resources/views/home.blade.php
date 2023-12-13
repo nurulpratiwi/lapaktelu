@@ -110,94 +110,22 @@
       <div class="container d-flex justify-content-between mb-2">
         <h1>Terbaru</h1>
       </div>
-      <div class="produk-item">
-        <a class="text-decoration-none" href="detail_produk.html">
-          <div class="card m-3" style="width: 18rem">
-            <img src="img/sepatu-bekas.png" class="card-img-top" alt="..." style="min-height: 300px" />
-            <div class="card-body">
-              <h5 class="card-title">Sepatu Coklat</h5>
-              <p class="card-text">Rp150.000</p>
+      @foreach(App\Models\Produk::all() as $product)
+        @if ($product->status == 'accepted')
+            <div class="produk-item">
+              <a href="detail_produk.html" class="text-decoration-none">
+                <div class="card m-3" style="width: 18rem">
+                  <img src="{{ asset('images/' . $product->gambar) }}" class="card-img-top" style="min-height: 300px" />
+                  <div class="card-body">
+                    <h5 class="card-title">{{ $product->nama }}</h5>
+                    <p class="card-text">Rp{{ $product->harga }}</p>
+                  </div>
+                </div>
+              </a>
             </div>
-          </div>
-        </a>
-      </div>
-      <div class="produk-item">
-        <a class="text-decoration-none" href="detail_produk.html">
-          <div class="card m-3" style="width: 18rem">
-            <img src="img/sepatu.png" class="card-img-top" alt="..." style="min-height: 300px" />
-            <div class="card-body">
-              <h5 class="card-title">Sepatu Adidas</h5>
-              <p class="card-text">Rp250.000</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="produk-item">
-        <a href="detail_produk.html" class="text-decoration-none">
-          <div class="card m-3" style="width: 18rem">
-            <img src="img/dress.png" class="card-img-top" alt="..." style="min-height: 300px" />
-            <div class="card-body">
-              <h5 class="card-title">Dress Bunga Coklat</h5>
-              <p class="card-text">Rp50.000</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="produk-item">
-        <a href="detail_produk.html" class="text-decoration-none">
-          <div class="card m-3" style="width: 18rem">
-            <img src="img/gelang.png" class="card-img-top" alt="..." style="min-height: 300px" />
-            <div class="card-body">
-              <h5 class="card-title">Gelang Antique</h5>
-              <p class="card-text">Rp20.000</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="produk-item">
-        <a href="detail_produk.html" class="text-decoration-none">
-          <div class="card m-3" style="width: 18rem">
-            <img src="img/panci-listrik.png" class="card-img-top" alt="..." style="min-height: 300px" />
-            <div class="card-body">
-              <h5 class="card-title">Panci Listrik Bekas</h5>
-              <p class="card-text">Rp120.000</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="produk-item">
-        <a href="detail_produk.html" class="text-decoration-none">
-          <div class="card m-3" style="width: 18rem">
-            <img src="img/tas-selempang.png" class="card-img-top" alt="..." style="min-height: 300px" />
-            <div class="card-body">
-              <h5 class="card-title">Tas Selempang</h5>
-              <p class="card-text">Rp180.000</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="produk-item">
-        <a href="detail_produk.html" class="text-decoration-none">
-          <div class="card m-3" style="width: 18rem">
-            <img src="img/kemeja.png" class="card-img-top" alt="..." style="min-height: 300px" />
-            <div class="card-body">
-              <h5 class="card-title">Kemeja Pria Hijau</h5>
-              <p class="card-text">Rp130.000</p>
-            </div>
-          </div>
-        </a>
-      </div>
-      <div class="produk-item">
-        <a href="detail_produk.html" class="text-decoration-none">
-          <div class="card m-3" style="width: 18rem">
-            <img src="img/tuperware.png" class="card-img-top" alt="..." style="min-height: 300px" />
-            <div class="card-body">
-              <h5 class="card-title">Tupperware Mulus</h5>
-              <p class="card-text">Rp320.000</p>
-            </div>
-          </div>
-        </a>
-      </div>
+        @endif
+      @endforeach
+      
       <section class="container text-center m-5">
         <button class="btn btn-primary text-center fs-4 fw-medium" style="width: 200px; height: 60px; background-color: #3570d6">Lihat Semua</button>
       </section>

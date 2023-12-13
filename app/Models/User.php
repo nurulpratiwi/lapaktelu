@@ -22,10 +22,13 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array<int, string>
      */
     protected $fillable = [
+        'namalengkap',
         'username',
         'email',
         'password',
-        'type'
+        'nomorHP',
+        'alamat',
+        'fotoProfil'
     ];
 
     /**
@@ -54,10 +57,4 @@ class User extends Authenticatable implements MustVerifyEmail
      * @param string $value
      * @return \Illuminate\Database\Eloquent\Casts\Attribute
      */
-
-     protected function type(): Attribute{
-        return new Attribute(
-            get:fn ($value) => ["user", "admin"][$value],
-        );
-     }
 }

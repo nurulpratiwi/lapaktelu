@@ -14,7 +14,7 @@
 <body>
     @include('includes.navbar')
     <div
-      class="container-flex justify-content-center align-items-center"
+      class="container-flex justify-content-center align-items-center mt-5"
       id="_container"
     >
       @yield('content')
