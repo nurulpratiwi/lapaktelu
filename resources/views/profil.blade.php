@@ -46,7 +46,7 @@
               </a>
             </li>
             <li>
-              <a href="home_page.html" class="nav-link link-dark ps-0" data-bs-toggle="modal" data-bs-target="#logout">
+              <a href="home_page.html" class="nav-link link-dark ps-0" data-bs-toggle="modal">
                  
                 Logout
               </a>
