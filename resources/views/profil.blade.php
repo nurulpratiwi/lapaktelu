@@ -36,10 +36,6 @@
           </ul>
           <li class="nav-item">
               <a href="editProfil.html" class="nav-link link-dark ps-0" aria-current="page">
-                <i class="bi bi-pencil-fill"></i>
-                <svg class="bi me-2" width="16" height="16">
-                  <use xlink:href="#pencil-fill" />
-                </svg>
                 Edit Profil
               </a>
             </li>
